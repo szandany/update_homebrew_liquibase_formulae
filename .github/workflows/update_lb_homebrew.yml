@@ -20,3 +20,5 @@ jobs:
       - name: update_lb_hmbrew
         run: | 
           ./update_homebrew_liquibase.sh
+          ls
+          cat liquibase.rb
