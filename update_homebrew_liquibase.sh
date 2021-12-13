@@ -1,9 +1,8 @@
 #!/bin/bash
 VERSION="${1:-"$(curl -s https://github.com/liquibase/liquibase/releases/latest | grep -o "v.*" | sed s/'>.*'//g |  sed s/'v'//g | sed 's/"//g')"}"
 curl -L https://github.com/liquibase/liquibase/releases/download/v${VERSION}/liquibase-${VERSION}.tar.gz --output liquibase-${VERSION}.tar.gz
-ls
 NEW_CHECKSUM=$(sha256sum liquibase-${VERSION}.tar.gz | awk '{print $1}')
-echo $NEW_CHECKSUM
+
 echo "class Liquibase < Formula
   desc \"Library for database change tracking\"
   homepage \"https://www.liquibase.org/\"
@@ -37,3 +36,7 @@ echo "class Liquibase < Formula
     system \"\#{bin}/liquibase\", \"--version\"
   end
 end" > liquibase.rb
+
+git clone https://github.com/Homebrew/homebrew-core
+yes | cp liquibase.rb homebrew-core/liquibase.rb
+cat homebrew-core/liquibase.rb
