@@ -21,6 +21,7 @@ jobs:
         run: | 
           chmod +x download_liquibase.sh
           ./download_liquibase.sh
+          ls
 
       - name: Run a multi-line script
         run: |
