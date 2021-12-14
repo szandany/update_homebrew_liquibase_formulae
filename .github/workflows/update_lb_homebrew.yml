@@ -17,6 +17,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          name: lb-artifact
+          path: liquibase.rb
+          retention-days: 20
       - name: update_lb_hmbrew
         run: | 
           ./update_homebrew_liquibase.sh
