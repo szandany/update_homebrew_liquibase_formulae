@@ -37,6 +37,6 @@ echo "class Liquibase < Formula
   end
 end" > liquibase.rb
 
-git clone https://github.com/Homebrew/homebrew-core
-cp -rf liquibase.rb homebrew-core/liquibase.rb
-cat homebrew-core/liquibase.rb
+# git clone https://github.com/Homebrew/homebrew-core
+# cp -rf liquibase.rb homebrew-core/liquibase.rb
+cat liquibase.rb
