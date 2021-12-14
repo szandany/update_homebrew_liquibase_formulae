@@ -21,11 +21,10 @@ jobs:
       - name: update_lb_hmbrew
         run: | 
           ./update_homebrew_liquibase.sh
-          export VERSION="${1:-"$(curl -s https://github.com/liquibase/liquibase/releases/latest | grep -o "v.*" | sed s/'>.*'//g |  sed s/'v'//g | sed 's/"//g')"}"
           
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: lb-artifact_${VERSION}
+          name: lb-artifact
           path: liquibase.rb
           retention-days: 5
